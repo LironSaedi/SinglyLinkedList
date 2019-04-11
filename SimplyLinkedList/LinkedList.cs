@@ -30,16 +30,33 @@ namespace SimplyLinkedList
 
         void AddFirst(T value)
         {
-
             if (Head == null)
             {
-                new Node(value);
+                Head = new Node(value);
             }
-            T swapValue = Head.Value;
+            
+            Node temp = new Node(value);
+            temp.Next = Head;
 
-
+            Head = temp;
         }
 
+        void AddLast(T value)
+        {
+            if (Head == null)
+            {
+                Head = new Node(value);
+            }
+
+            Node temp = Head;
+
+            while (temp.Next == null)
+            {
+                temp = temp.Next;
+            }
+
+            temp.Next = new Node(value);
+        }
 
     }
 }
